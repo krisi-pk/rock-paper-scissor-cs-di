@@ -8,39 +8,23 @@ namespace RockPaperScrissor
 {
     public class GameManager
     {
+        private IPlayer _player1;
+        private IPlayer _player2;
 
-        Random random = new Random();
+        public GameManager(IPlayer player1,IPlayer playe2) { 
+            _player1 = player1;
+            _player2 = playe2;
+        }
 
+       
         public Result Play()
         {
-            //player1
-            Choice p1;
-            Console.WriteLine("Choice between (R)ock, (P)aper and (S)crissor");
-            string input = Console.ReadLine().ToUpper();
-            while (true){
-                if (input == "R"){
-                    p1 = Choice.Rock;             
-                    break;
-                }
-                else if (input == "P"){
-                    p1 = Choice.Paper;
-                    break;
-                }
-                else if (input == "S"){
-                    p1 = Choice.Scrissor;
-                    break;
-                }
-                else{
-                    Console.WriteLine("Invalid choice");
-                }
-            }
-
-            //player2
-            Choice p2 = (Choice)random.Next(0, 3);
-
+            Choice p1 = _player1.MakeChoice();
+            Choice p2 = _player2.MakeChoice();
 
             Console.WriteLine("Player 1 choose " +p1);
             Console.WriteLine("Player 2 choose " +p2);
+
             if (p1 == p2){
                 return Result.Draw;
             }
@@ -52,7 +36,6 @@ namespace RockPaperScrissor
             else {
                 return Result.Player2Win;
             }
-
         }
     }
 

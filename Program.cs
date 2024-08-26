@@ -10,7 +10,8 @@ namespace RockPaperScrissor
     {
         static void Main(string[] args)
         {
-            GameManager game = new GameManager();
+
+            GameManager game = new GameManager(new Human(),new Computer());
 
             while (true){
                 Console.WriteLine(game.Play().ToString());
