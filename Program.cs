@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace RockPaperScrissor
 {
@@ -10,11 +11,29 @@ namespace RockPaperScrissor
     {
         static void Main(string[] args)
         {
+            // 1. Create the service collection.
+            var services = new ServiceCollection();
 
-            GameManager game = new GameManager(new Human(),new Computer());
+            // 2. Register (add and configure) the services.
+            services.AddTransient<IPlayer, Human>();
+            services.AddTransient<IPlayer, Computer>();
+            services.AddTransient<GameManager>();
 
+            // 3. Build the service provider from the service collection.
+            var serviceProvider = services.BuildServiceProvider();
+
+
+            // 4. Resolve the services that you need.
+            var greetingService = serviceProvider.GetRequiredService<GameManager>();
+
+
+            //GameManager game = new GameManager(new Human(),new Computer());
+
+
+
+            // 5. Use the services
             while (true){
-                Console.WriteLine(game.Play().ToString());
+                Console.WriteLine(greetingService.Play().ToString());
                 Console.WriteLine("Do you want to play more? Y or N");
                 string input = Console.ReadLine().ToUpper();
                 if (input == "N") {

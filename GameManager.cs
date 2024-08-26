@@ -11,9 +11,9 @@ namespace RockPaperScrissor
         private IPlayer _player1;
         private IPlayer _player2;
 
-        public GameManager(IPlayer player1,IPlayer playe2) { 
+        public GameManager(IPlayer player1,IPlayer player2) { 
             _player1 = player1;
-            _player2 = playe2;
+            _player2 = player2;
         }
 
        
