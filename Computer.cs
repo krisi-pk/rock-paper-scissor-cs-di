@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScrissor
 {
-    public class Computer : IPlayer
+    public class Computer : IComputerPlayer
     {
         private Random random = new Random();
         

@@ -15,8 +15,8 @@ namespace RockPaperScrissor
             var services = new ServiceCollection();
 
             // 2. Register (add and configure) the services.
-            services.AddTransient<IPlayer, Human>();
-            services.AddTransient<IPlayer, Computer>();
+            services.AddTransient<IHumanPlayer, Human>();
+            services.AddTransient<IComputerPlayer, Computer>();
             services.AddTransient<GameManager>();
 
             // 3. Build the service provider from the service collection.

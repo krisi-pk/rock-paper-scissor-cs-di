@@ -10,4 +10,12 @@ namespace RockPaperScrissor
     {
         Choice MakeChoice();
     }
+
+    public interface IHumanPlayer : IPlayer 
+    { 
+    }
+
+    public interface IComputerPlayer : IPlayer
+    {
+    }
 }

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScrissor
 {
-    public class Human : IPlayer
+    public class Human : IHumanPlayer 
     {
         public Choice MakeChoice()
         {
